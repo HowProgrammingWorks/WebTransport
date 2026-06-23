@@ -5,9 +5,14 @@
   "type": "module",
   "author": "Timur Shemsedinov <timur.shemsedinov@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": ">=24.16.0"
+  },
   "scripts": {
     "lint": "eslint . && prettier -c \"**/*.js\"",
-    "fix": "eslint . --fix && prettier --write \"**/*.js\""
+    "fix": "eslint . --fix && prettier --write \"**/*.js\"",
+    "cert": "sh scripts/create-cert.sh && node scripts/create-cert-hash.js",
+    "start": "node --experimental-quic server.js"
   },
   "devDependencies": {
     "eslint": "^10.5.0",

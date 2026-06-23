@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WebTransport demo</title>
+    <style>
+      body {
+        max-width: 840px;
+        margin: 32px auto;
+        padding: 0 16px;
+        font-family: system-ui, sans-serif;
+      }
+
+      button,
+      input {
+        font: inherit;
+      }
+
+      input {
+        width: 360px;
+      }
+
+      pre {
+        min-height: 240px;
+        padding: 16px;
+        overflow: auto;
+        border: 1px solid #bbb;
+        border-radius: 8px;
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>WebTransport demo</h1>
+
+    <p>
+      Browser client for HTTP/3 WebTransport streams and datagrams.
+    </p>
+
+    <label>
+      URL:
+      <input id="url" value="https://localhost:4433/wt">
+    </label>
+
+    <button id="connect">Connect</button>
+    <button id="clear">Clear</button>
+
+    <pre id="output"></pre>
+
+    <script type="module" src="/client.js"></script>
+  </body>
+</html>
