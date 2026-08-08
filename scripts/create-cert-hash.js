@@ -12,12 +12,17 @@ const readPemBody = (filePath) => readFileSync(filePath, 'utf8')
   .replace(/-----END CERTIFICATE-----/g, '')
   .replace(/\s+/g, '');
 
+const certPath = path.join(certsDir, 'server.crt');
+const pemBody = readPemBody(certPath);
+const certBytes = Buffer.from(pemBody, 'base64');
+const certHash = createHash('sha256')
+  .update(certBytes)
+  .digest('base64');
+
 const content = JSON.stringify([
   {
     algorithm: 'sha-256',
-    value: createHash('sha256')
-      .update(Buffer.from(readPemBody(path.join(certsDir, 'server.crt')), 'base64'))
-      .digest('base64'),
+    value: certHash,
   },
 ], null, 2);
 
