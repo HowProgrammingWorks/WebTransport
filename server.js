@@ -29,6 +29,12 @@ if (process.features.quic) {
   const { startQuicServer } = await import('./lib/quic.js');
   await startQuicServer();
 } else {
-  console.warn('node:quic is not available in this Node.js build; QUIC server skipped.');
-  console.warn('Build Node with ./configure --experimental-quic to enable QUIC.');
+  console.warn(
+    'node:quic is not available in this Node.js build; ' +
+    'QUIC server skipped.',
+  );
+  console.warn(
+    'Build Node with ./configure --experimental-quic ' +
+    'to enable QUIC.',
+  );
 }
